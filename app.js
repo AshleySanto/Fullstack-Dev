@@ -14,14 +14,10 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
-app.set('view engine', 'hbs');
-
 //register handlebars partials (https://www.npmjs.com/package/hbs)
 hbs.registerPartials(path.join(__dirname, 'app_server', 'views/partials'));
 
-//app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
-//app.set('view engine', 'hbs');
+app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
